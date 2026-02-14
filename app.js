@@ -2,7 +2,8 @@
 const gameState = {
     players: [],
     currentView: 'dice',
-    currentModalContext: null
+    currentModalContext: null,
+    diceHistory: [] // Historial de las últimas 5 tiradas
 };
 
 // ===== DOM Elements =====
@@ -16,8 +17,7 @@ const elements = {
 
     // Dice elements
     die1: null,
-    die2: null,
-    diceTotal: null,
+    historyList: null,
     rollDiceBtn: null,
 
     // Banking elements
@@ -51,8 +51,7 @@ function initElements() {
 
     // Dice
     elements.die1 = document.getElementById('die1');
-    elements.die2 = document.getElementById('die2');
-    elements.diceTotal = document.getElementById('dice-total');
+    elements.historyList = document.getElementById('history-list');
     elements.rollDiceBtn = document.getElementById('roll-dice-btn');
 
     // Banking
@@ -194,20 +193,39 @@ function updateView() {
 // ===== Dice System =====
 function rollDice() {
     const die1Value = Math.floor(Math.random() * 6) + 1;
-    const die2Value = Math.floor(Math.random() * 6) + 1;
 
     // Add rolling animation
     elements.die1.classList.add('rolling');
-    elements.die2.classList.add('rolling');
 
     setTimeout(() => {
         elements.die1.querySelector('.die-value').textContent = die1Value;
-        elements.die2.querySelector('.die-value').textContent = die2Value;
-        elements.diceTotal.textContent = die1Value + die2Value;
+
+        // Añadir al historial (mantener solo las últimas 5)
+        gameState.diceHistory.unshift(die1Value);
+        if (gameState.diceHistory.length > 5) {
+            gameState.diceHistory.pop();
+        }
+
+        // Actualizar visualización del historial
+        updateDiceHistory();
 
         elements.die1.classList.remove('rolling');
-        elements.die2.classList.remove('rolling');
     }, 600);
+}
+
+function updateDiceHistory() {
+    if (gameState.diceHistory.length === 0) {
+        elements.historyList.innerHTML = '<span class="history-empty">No hay tiradas aún</span>';
+        return;
+    }
+
+    elements.historyList.innerHTML = gameState.diceHistory
+        .map((value, index) => `
+            <div class="history-item ${index === 0 ? 'newest' : ''}">
+                <span class="history-value">${value}</span>
+            </div>
+        `)
+        .join('');
 }
 
 // ===== Game Management =====
