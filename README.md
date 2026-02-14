@@ -233,7 +233,7 @@ Este proyecto es de código abierto. Siéntete libre de usarlo y modificarlo par
 
 ## 🙏 Créditos
 
-Desarrollado para facilitar las partidas del juego de mesa **Helion Delta**.
+Desarrollado por erppjr para facilitar el desarrollo y mejorar la experiencia del juego de mesa **Helion Delta**.
 
 ---
 
