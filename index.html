@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#a855f7">
+    <meta name="description" content="Helion Delta Bank Dice - Juego de mesa espacial de dados y banca">
+    <title>Banca Espacial - Juego de Mesa</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="splash-screen active">
+        <div class="splash-content">
+            <div class="splash-logo">
+                <div class="logo-icon">🚀</div>
+            </div>
+            <h1 class="splash-title">HELION DELTA</h1>
+            <h2 class="splash-subtitle">BANK-DICE</h2>
+            <button class="btn btn-splash" id="start-app-btn">
+                🎲 Comenzar
+            </button>
+        </div>
+        <div class="splash-stars"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Header / Navigation -->
+        <header class="app-header">
+            <h1>🚀 Banca Espacial</h1>
+            <nav class="main-nav">
+                <button class="nav-btn active" data-view="dice">🎲 Dados</button>
+                <button class="nav-btn" data-view="banking">🏦 Banca</button>
+            </nav>
+        </header>
+
+        <!-- Main Content Views -->
+        <main class="app-main">
+            <!-- Dice View -->
+            <section id="dice-view" class="view active">
+                <div class="dice-container">
+                    <h2>Tirar Dados</h2>
+                    <div class="dice-display">
+                        <div class="die" id="die1">
+                            <span class="die-value">1</span>
+                        </div>
+                        <div class="die" id="die2">
+                            <span class="die-value">1</span>
+                        </div>
+                    </div>
+                    <div class="dice-total">
+                        <span class="total-label">Total:</span>
+                        <span class="total-value" id="dice-total">2</span>
+                    </div>
+                    <button class="btn btn-primary btn-large" id="roll-dice-btn">
+                        🎲 Tirar Dados
+                    </button>
+                </div>
+            </section>
+
+            <!-- Banking View -->
+            <section id="banking-view" class="view">
+                <!-- Player Setup Screen -->
+                <div id="setup-screen" class="setup-container">
+                    <h2>Configurar Partida</h2>
+                    <p>¿Cuántos jugadores?</p>
+                    <div class="player-count-selector">
+                        <button class="btn btn-secondary player-count-btn" data-players="2">2 Jugadores</button>
+                        <button class="btn btn-secondary player-count-btn" data-players="3">3 Jugadores</button>
+                        <button class="btn btn-secondary player-count-btn" data-players="4">4 Jugadores</button>
+                    </div>
+                </div>
+
+                <!-- Player Names Configuration Screen -->
+                <div id="names-screen" class="setup-container" style="display: none;">
+                    <h2>Nombres de Jugadores</h2>
+                    <p>Personaliza el nombre de cada jugador</p>
+                    <div id="names-form" class="names-form">
+                        <!-- Name inputs will be dynamically generated here -->
+                    </div>
+                    <div class="names-actions">
+                        <button class="btn btn-secondary" id="back-to-setup-btn">← Volver</button>
+                        <button class="btn btn-primary" id="start-game-btn">Comenzar Partida →</button>
+                    </div>
+                </div>
+
+                <!-- Game Screen -->
+                <div id="game-screen" class="game-container" style="display: none;">
+                    <!-- Special Actions Bar -->
+                    <div class="special-actions-bar">
+                        <button class="btn btn-sm btn-special" id="steal-planet-btn">🏴‍☠️ Robar Planeta</button>
+                        <button class="btn btn-sm btn-special" id="swap-banks-btn">🔄 Intercambiar Huchas</button>
+                    </div>
+
+                    <!-- Players List -->
+                    <div id="players-container" class="players-list">
+                        <!-- Player cards will be dynamically generated here -->
+                    </div>
+
+                    <!-- Reset Game Button -->
+                    <button class="btn btn-danger btn-reset" id="reset-game-btn">🔄 Nueva Partida</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for Booster Configuration -->
+    <div id="booster-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>➕ Añadir Potenciador</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Tipo de Planeta:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="planet-type" value="normal" checked>
+                            <span>🪐 Normal (×1)</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="planet-type" value="center">
+                            <span>⭐ Central (×2)</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Duración:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="booster-duration" value="1">
+                            <span>1 Ronda</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="booster-duration" value="2">
+                            <span>2 Rondas</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="booster-duration" value="3" checked>
+                            <span>3 Rondas</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="booster-duration" value="infinite">
+                            <span>∞ Infinitas</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="booster-preview">
+                    <p><strong>Monedas extra totales:</strong> <span id="booster-total-preview">6</span></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary modal-cancel">Cancelar</button>
+                <button class="btn btn-primary" id="confirm-booster-btn">Añadir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Shop -->
+    <div id="shop-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🛒 Tienda</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="shop-items">
+                    <button class="shop-item" data-cost="3">
+                        <span class="item-icon">🎴</span>
+                        <span class="item-name">Carta / Nave 1</span>
+                        <span class="item-cost">💰 3</span>
+                    </button>
+                    <button class="shop-item" data-cost="6">
+                        <span class="item-icon">🚀</span>
+                        <span class="item-name">Nave 2</span>
+                        <span class="item-cost">💰 6</span>
+                    </button>
+                    <button class="shop-item" data-cost="15">
+                        <span class="item-icon">🛸</span>
+                        <span class="item-name">Nave 3</span>
+                        <span class="item-cost">💰 15</span>
+                    </button>
+                    <button class="shop-item" data-cost="20">
+                        <span class="item-icon">🛰️</span>
+                        <span class="item-name">Nave 4</span>
+                        <span class="item-cost">💰 20</span>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary modal-cancel">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Manual Coin Adjustment -->
+    <div id="coins-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>💰 Ajustar Monedas</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Cantidad:</label>
+                    <input type="number" id="manual-coins-input" min="1" value="1" class="input-field">
+                </div>
+                <div class="quick-adjust-buttons">
+                    <button class="btn btn-sm btn-secondary" data-adjust="-10">-10</button>
+                    <button class="btn btn-sm btn-secondary" data-adjust="-5">-5</button>
+                    <button class="btn btn-sm btn-secondary" data-adjust="-1">-1</button>
+                    <button class="btn btn-sm btn-primary" data-adjust="1">+1</button>
+                    <button class="btn btn-sm btn-primary" data-adjust="5">+5</button>
+                    <button class="btn btn-sm btn-primary" data-adjust="10">+10</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" id="remove-coins-btn">➖ Quitar</button>
+                <button class="btn btn-primary" id="add-coins-btn">➕ Añadir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Player Selection (multi-purpose) -->
+    <div id="player-select-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="player-select-title">Seleccionar Jugador</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="player-select-list" class="player-select-list">
+                    <!-- Player selection buttons will be generated here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary modal-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Steal Planet (Complete Panel) -->
+    <div id="steal-planet-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🏴‍☠️ Robar Planeta</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Jugador que ROBA:</label>
+                    <select id="steal-from-player" class="input-field">
+                        <option value="">-- Seleccionar --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Jugador al que se le ROBA:</label>
+                    <select id="steal-to-player" class="input-field">
+                        <option value="">-- Seleccionar --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Tipo de planeta robado:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="steal-planet-type" value="normal" checked>
+                            <span>🪐 Planeta Normal</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="steal-planet-type" value="center">
+                            <span>⭐ Planeta Central</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="steal-booster-group" style="display: none;">
+                    <label>Potenciador a transferir:</label>
+                    <select id="steal-booster-select" class="input-field">
+                        <option value="">-- Sin potenciador --</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary modal-cancel">Cancelar</button>
+                <button class="btn btn-primary" id="confirm-steal-btn">Confirmar Robo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Confirmation Modal (iOS compatible) -->
+    <div id="confirm-modal" class="modal">
+        <div class="modal-content" style="max-width: 360px;">
+            <div class="modal-header">
+                <h3 id="confirm-title">Confirmar</h3>
+            </div>
+            <div class="modal-body">
+                <p id="confirm-message" style="font-size: 1rem; line-height: 1.5;"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="confirm-cancel-btn">Cancelar</button>
+                <button class="btn btn-primary" id="confirm-ok-btn">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Service Worker registered'))
+                    .catch(err => console.log('Service Worker registration failed'));
+            });
+        }
+    </script>
+    <script src="app.js"></script>
+</body>
+
+</html>
