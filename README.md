@@ -174,13 +174,15 @@ bank-dice/
 
 ## 🎨 Características de Diseño
 
-- **Tema espacial cósmico** con gradientes púrpura y azul
+- **Tema espacial oscuro realista** con fondo negro y estrellas blancas
+- **Fondo estrellado animado** con efecto parallax en 3 capas
+- **Nave espacial** que cruza el fondo ocasionalmente
 - **Animaciones suaves** en todas las interacciones
 - **Diseño responsive** optimizado para móviles
 - **Pantalla de inicio** con logo animado
-- **Tarjetas de jugador** con colores únicos
+- **Tarjetas de jugador** con colores únicos sutiles
 - **Modales personalizados** compatibles con iOS
-- **Efectos de brillo** y sombras para profundidad
+- **Acentos azules sutiles** para simular el espacio profundo
 
 ---
 
@@ -220,7 +222,7 @@ Perfecto para partidas rápidas entre dos jugadores. La app gestiona:
 Ideal para partidas completas. Soporta:
 - Hasta 4 jugadores simultáneos
 - Gestión individual de recursos
-- Colores únicos para cada jugador (púrpura, azul, dorado, rosa)
+- Colores únicos para cada jugador (azul, cian, blanco/plateado, gris azulado)
 - Acciones especiales entre cualquier combinación de jugadores
 
 ---
