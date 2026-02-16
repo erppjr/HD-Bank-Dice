@@ -199,8 +199,8 @@ Los datos se guardan automáticamente en `localStorage`:
 
 | Plataforma | Soporte |
 |------------|---------|
-| **Android** | ✅ Completo (PWA + APK) |
-| **iOS** | ✅ Completo (requiere "Añadir a inicio") |
+| **Android** | ✅ Completo |
+| **iOS** | ✅ Completo |
 | **Chrome Desktop** | ✅ Completo |
 | **Firefox** | ✅ Completo |
 | **Safari** | ✅ Completo |
