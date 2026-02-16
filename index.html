@@ -44,6 +44,7 @@
             <nav class="main-nav">
                 <button class="nav-btn active" data-view="dice">🎲 Dados</button>
                 <button class="nav-btn" data-view="banking">🏦 Banca</button>
+                <button class="nav-btn" data-view="help">❓ Ayuda</button>
             </nav>
         </header>
 
@@ -113,6 +114,81 @@
                     <button class="btn btn-danger btn-reset" id="reset-game-btn">🔄 Nueva Partida</button>
                 </div>
             </section>
+        </main>
+        <!-- Help View -->
+        <section id="help-view" class="view">
+            <div class="help-container">
+                <div class="help-tabs">
+                    <button class="help-tab active" data-tab="rules">📜 Reglas</button>
+                    <button class="help-tab" data-tab="tutorial">📱 Tutorial App</button>
+                </div>
+
+                <!-- Rules Content -->
+                <div id="rules-content" class="help-content active">
+                    <div class="rules-placeholder">
+                        <h3>🚧 En Construcción</h3>
+                        <p>Las reglas completas del juego de mesa Helion Delta se añadirán próximamente.</p>
+                        <div style="font-size: 3rem; margin: 2rem 0;">🪐🎲🚀</div>
+                    </div>
+                </div>
+
+                <!-- Tutorial Content -->
+                <div id="tutorial-content" class="help-content">
+                    <div class="tutorial-guide">
+                        <h3>Guía de Uso de la App</h3>
+
+                        <div class="tutorial-step">
+                            <h4>1. Configuración Inicial</h4>
+                            <p>Al iniciar, ve a la pestaña <strong>🏦 Banca</strong>, selecciona el número de jugadores
+                                (2-4) y personaliza sus nombres.</p>
+                        </div>
+
+                        <div class="tutorial-step">
+                            <h4>2. Tirar Dados</h4>
+                            <p>En la pestaña <strong>🎲 Dados</strong>, pulsa el botón para obtener un resultado
+                                aleatorio del 1 al 6. Se guarda un historial de las últimas 5 tiradas.</p>
+                        </div>
+
+                        <div class="tutorial-step">
+                            <h4>3. Gestión de Planetas</h4>
+                            <p>En la tarjeta de tu jugador, usa los botones <strong>+</strong> y <strong>−</strong> para
+                                añadir planetas conquistados. Activa el interruptor <strong>⭐ Central</strong> si
+                                controlas el planeta central.</p>
+                        </div>
+
+                        <div class="tutorial-step">
+                            <h4>4. Cobrar Ingresos</h4>
+                            <p>Al inicio de tu turno, pulsa el botón <strong>💰 Cobrar</strong>. La app calcula
+                                automáticamente tus monedas sumando: base (2) + planetas + bonos + grupos +
+                                potenciadores.</p>
+                        </div>
+
+                        <div class="tutorial-step">
+                            <h4>5. Potenciadores</h4>
+                            <p>Pulsa <strong>➕ Potenciador</strong> para añadir bonificaciones temporales (x1 o x2) con
+                                duración de 1 a 3 rondas o infinitas. Se consumen automáticamente al cobrar.</p>
+                        </div>
+
+                        <div class="tutorial-step">
+                            <h4>6. Tienda y Acciones</h4>
+                            <p>Usa <strong>🛒 Comprar</strong> para adquirir naves (la app verifica si tienes saldo).
+                                Usa <strong>💳 Vender Carta</strong> para recibir 1 moneda rápida.</p>
+                        </div>
+
+                        <div class="tutorial-step">
+                            <h4>7. Acciones Especiales</h4>
+                            <p>Al final de la pantalla de Banca encontrarás botones para:</p>
+                            <ul>
+                                <li><strong>🏴‍☠️ Robar Planeta:</strong> Transferir un planeta de un jugador a otro.
+                                </li>
+                                <li><strong>🔄 Intercambiar Huchas:</strong> Cambiar todo el dinero con otro jugador.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         </main>
     </div>
 

@@ -48,6 +48,7 @@ function initElements() {
     elements.setupScreen = document.getElementById('setup-screen');
     elements.namesScreen = document.getElementById('names-screen');
     elements.gameScreen = document.getElementById('game-screen');
+    elements.helpView = document.getElementById('help-view');
 
     // Dice
     elements.die1 = document.getElementById('die1');
@@ -145,6 +146,21 @@ function initEventListeners() {
     });
     document.getElementById('add-coins-btn').addEventListener('click', () => manualAdjustCoins('add'));
     document.getElementById('remove-coins-btn').addEventListener('click', () => manualAdjustCoins('remove'));
+
+    // Help View Tabs
+    document.querySelectorAll('.help-tab').forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            const tabName = e.target.dataset.tab;
+
+            // Update tabs
+            document.querySelectorAll('.help-tab').forEach(t => t.classList.remove('active'));
+            e.target.classList.add('active');
+
+            // Update content
+            document.querySelectorAll('.help-content').forEach(c => c.classList.remove('active'));
+            document.getElementById(`${tabName}-content`).classList.add('active');
+        });
+    });
 }
 
 // ===== Splash Screen =====
