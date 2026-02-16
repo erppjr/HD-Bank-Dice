@@ -138,6 +138,38 @@ body {
         1300px 380px 0 white;
 }
 
+/* Duplicate stars for seamless loop */
+.stars-layer-1::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background: white;
+    border-radius: 50%;
+    left: 100%;
+    box-shadow:
+        50px 100px 0 white,
+        150px 250px 0 white,
+        300px 150px 0 rgba(255, 255, 255, 0.8),
+        450px 300px 0 white,
+        600px 100px 0 rgba(255, 255, 255, 0.9),
+        750px 400px 0 white,
+        250px 450px 0 white,
+        500px 50px 0 rgba(255, 255, 255, 0.7),
+        700px 250px 0 white,
+        850px 150px 0 white,
+        1050px 200px 0 white,
+        1200px 350px 0 white,
+        1400px 120px 0 rgba(255, 255, 255, 0.8),
+        1550px 280px 0 white,
+        1700px 450px 0 white,
+        1850px 180px 0 white,
+        350px 320px 0 white,
+        900px 420px 0 rgba(255, 255, 255, 0.9),
+        1100px 80px 0 white,
+        1300px 380px 0 white;
+}
+
 .stars-layer-2::before {
     content: '';
     position: absolute;
@@ -164,6 +196,33 @@ body {
         1600px 50px 0 rgba(74, 144, 226, 0.4);
 }
 
+.stars-layer-2::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    left: 100%;
+    box-shadow:
+        100px 300px 0 rgba(255, 255, 255, 0.8),
+        400px 100px 0 white,
+        650px 350px 0 rgba(74, 144, 226, 0.5),
+        200px 500px 0 white,
+        550px 200px 0 rgba(255, 255, 255, 0.9),
+        800px 450px 0 white,
+        350px 50px 0 rgba(74, 144, 226, 0.4),
+        700px 150px 0 white,
+        1000px 250px 0 rgba(255, 255, 255, 0.8),
+        1250px 400px 0 white,
+        1500px 150px 0 rgba(74, 144, 226, 0.5),
+        1750px 320px 0 white,
+        950px 90px 0 white,
+        1150px 480px 0 rgba(255, 255, 255, 0.9),
+        1350px 210px 0 white,
+        1600px 50px 0 rgba(74, 144, 226, 0.4);
+}
+
 .stars-layer-3::before {
     content: '';
     position: absolute;
@@ -171,6 +230,32 @@ body {
     height: 1px;
     background: rgba(255, 255, 255, 0.6);
     border-radius: 50%;
+    box-shadow:
+        75px 200px 0 rgba(255, 255, 255, 0.5),
+        225px 400px 0 rgba(255, 255, 255, 0.6),
+        475px 150px 0 rgba(255, 255, 255, 0.4),
+        625px 300px 0 rgba(255, 255, 255, 0.5),
+        125px 50px 0 rgba(255, 255, 255, 0.6),
+        875px 350px 0 rgba(255, 255, 255, 0.4),
+        1075px 120px 0 rgba(255, 255, 255, 0.5),
+        1275px 280px 0 rgba(255, 255, 255, 0.6),
+        1475px 420px 0 rgba(255, 255, 255, 0.4),
+        1675px 160px 0 rgba(255, 255, 255, 0.5),
+        325px 480px 0 rgba(255, 255, 255, 0.5),
+        775px 95px 0 rgba(255, 255, 255, 0.6),
+        1125px 375px 0 rgba(255, 255, 255, 0.4),
+        1375px 220px 0 rgba(255, 255, 255, 0.5),
+        1575px 460px 0 rgba(255, 255, 255, 0.6);
+}
+
+.stars-layer-3::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    left: 100%;
     box-shadow:
         75px 200px 0 rgba(255, 255, 255, 0.5),
         225px 400px 0 rgba(255, 255, 255, 0.6),

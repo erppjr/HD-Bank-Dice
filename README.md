@@ -1,4 +1,4 @@
-# 🚀 HELION DELTA - Bank-Dice
+# 🚀 HELION DELTA - Bank & Dice
 
 ![Helion Delta](icon-512.png)
 
