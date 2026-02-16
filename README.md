@@ -67,6 +67,11 @@ Esta app reemplaza los dados físicos y facilita la gestión de monedas y recurs
 - **Colores únicos** para identificar a cada jugador
 - **Persistencia de datos**: El progreso se guarda automáticamente
 
+### ❓ Ayuda y Tutorial
+- **Pestaña de Ayuda**: Acceso rápido a reglas y guías.
+- **Tutorial Interactivo**: Guía paso a paso sobre cómo usar la aplicación.
+- **Reglas**: (Próximamente) Consulta rápida del reglamento del juego.
+
 ---
 
 ## 📱 Instalación
@@ -127,6 +132,11 @@ index.html
 #### Acciones Especiales:
 - **🏴‍☠️ Robar Planeta**: Transfiere un planeta (y opcionalmente un potenciador) de un jugador a otro
 - **🔄 Intercambiar Huchas**: Intercambia las monedas totales entre dos jugadores
+
+### 4️⃣ Ayuda y Soporte
+- Ve a la pestaña **"❓ Ayuda"**
+- **📜 Reglas**: Consulta las reglas del juego (en construcción)
+- **📱 Tutorial App**: Repasa la guía de uso de la aplicación en cualquier momento
 
 ### 3️⃣ Finalizar/Reiniciar
 - Click en **"🔄 Nueva Partida"** para reiniciar
