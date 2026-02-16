@@ -77,18 +77,7 @@ Visita la app desplegada en GitHub Pages:
 https://erppjr.github.io/HD-Bank-Dice/
 ```
 
-### Opción 2: Instalar como PWA en Móvil
-1. Abre la URL en tu navegador móvil
-2. En el menú, selecciona "Añadir a pantalla de inicio"
-3. La app se instalará como aplicación nativa
-
-### Opción 3: Descargar APK (Android)
-1. Descarga el archivo APK
-2. Activa "Instalar apps desconocidas" en Configuración
-3. Instala el APK
-4. ¡Listo para jugar sin conexión!
-
-### Opción 4: Usar Localmente
+### Opción 2: Usar Localmente
 ```bash
 # Simplemente abre el archivo en tu navegador
 # No requiere servidor
